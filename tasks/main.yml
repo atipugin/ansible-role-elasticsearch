@@ -7,11 +7,11 @@
     repo: deb http://packages.elastic.co/elasticsearch/2.x/debian stable main
     update_cache: yes
 
-- name: install elasticsearch
-  apt: name=elasticsearch={{ elasticsearch_version }} state=present
-
 - name: install java
   apt: name=default-jdk state=present
+
+- name: install elasticsearch
+  apt: name=elasticsearch={{ elasticsearch_version }} state=present
 
 - name: install plugins
   command: creates=/usr/share/elasticsearch/plugins/{{ item.name }} /usr/share/elasticsearch/bin/plugin install {{ item.url }}
