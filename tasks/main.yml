@@ -15,7 +15,7 @@
 
 - name: install plugins
   command: creates=/usr/share/elasticsearch/plugins/{{ item.name }} /usr/share/elasticsearch/bin/plugin install {{ item.url }}
-  with_items: "{{ elasticsearch_plugins }}"
+  with_items: '{{ elasticsearch_plugins }}'
   notify:
     - restart elasticsearch
 
